@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Script from 'next/script'
+// import Script from 'next/script'
 import { Inter } from "next/font/google";
 import "./globals.css";
-import TelegramBotProvider from "./providers/TelegramBotProvider";
+import { TelegramProvider } from "./providers/TelegramBotProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +18,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <TelegramBotProvider>
-        <Script src="https://telegram.org/js/telegram-web-app.js" />
-        <body className={inter.className}>{children}</body>
-      </TelegramBotProvider>
+      {/* <TelegramBotProvider>
+        <Script src="https://telegram.org/js/telegram-web-app.js" /> */}
+      <body className={inter.className}>
+        <TelegramProvider>
+          {children}
+        </TelegramProvider>
+      </body>
+      {/* </TelegramBotProvider> */}
     </html>
   );
 }
