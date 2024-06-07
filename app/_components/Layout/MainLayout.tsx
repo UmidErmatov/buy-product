@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Card, Cart } from "..";
 import { getData } from "@/app/db/db";
 import { FoodType } from "@/app/types/cardTypes";
+import './MainLayout.css'
 const foods = getData();
 type Props = {}
 
@@ -47,17 +48,21 @@ function MainLayout({ }: Props) {
     };
 
     return (
-        <>{user ?
-            (<><h1 className="heading">Order Food</h1>
-                <Cart cartItems={cartItems} onCheckout={onCheckout} />
-                <div className="cards__container">
-                    {foods.map((food) => {
-                        return (
-                            <Card food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
-                        );
-                    })}
-                </div></>) : (<div>Make sure web app is opened from telegram client</div>)}
+        // <>{user ?
+        //     (
+        <>
+            <h1 className="heading">Order Food</h1>
+            <Cart cartItems={cartItems} onCheckout={onCheckout} />
+            <div className="cards__container">
+                {foods.map((food) => {
+                    return (
+                        <Card food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
+                    );
+                })}
+            </div>
         </>
+        //     ) : (<div>Make sure web app is opened from telegram client</div>)}
+        // </>
     )
 }
 

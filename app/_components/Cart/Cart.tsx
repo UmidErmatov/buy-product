@@ -1,5 +1,5 @@
-import React from 'react'
 import { Button } from '..'
+import './Cart.css'
 
 type Props = { cartItems: any, onCheckout: any }
 

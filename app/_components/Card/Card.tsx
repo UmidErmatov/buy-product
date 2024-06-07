@@ -4,6 +4,7 @@ import { FoodType } from '@/app/types/cardTypes';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '..';
+import './Card.css'
 
 type Props = { food: FoodType, onAdd: (food: FoodType) => void, onRemove: (food: FoodType) => void }
 
@@ -28,7 +29,7 @@ function Card({ food, onAdd, onRemove }: Props) {
                 {count}
             </span>
             <div className="image__container">
-                <Image src={imageUrl} alt={title} />
+                <Image src={imageUrl} alt={title} fill quality={100} />
             </div>
             <h4 className="card__title">
                 {title} . <span className="card__price">$ {price}</span>
