@@ -36,6 +36,7 @@ export interface IWebApp {
         isVisible: boolean;
     };
     MainButton: {
+        show(): unknown;
         text: string;
         color: string;
         textColor: string;
